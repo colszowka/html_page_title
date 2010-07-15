@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "html_page_title.gemspec",
      "lib/html_page_title.rb",
      "test/helper.rb",
      "test/test_html_page_title.rb"
