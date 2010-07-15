@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{html_page_title}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Christoph Olszowka"]
@@ -45,15 +45,18 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<redirect_follower>, [">= 0.1.1"])
       s.add_runtime_dependency(%q<hpricot>, [">= 0.8.2"])
+      s.add_runtime_dependency(%q<htmlentities>, [">= 4.0.0"])
       s.add_development_dependency(%q<shoulda>, [">= 2.11.1"])
     else
       s.add_dependency(%q<redirect_follower>, [">= 0.1.1"])
       s.add_dependency(%q<hpricot>, [">= 0.8.2"])
+      s.add_dependency(%q<htmlentities>, [">= 4.0.0"])
       s.add_dependency(%q<shoulda>, [">= 2.11.1"])
     end
   else
     s.add_dependency(%q<redirect_follower>, [">= 0.1.1"])
     s.add_dependency(%q<hpricot>, [">= 0.8.2"])
+    s.add_dependency(%q<htmlentities>, [">= 4.0.0"])
     s.add_dependency(%q<shoulda>, [">= 2.11.1"])
   end
 end
