@@ -1,5 +1,7 @@
 require 'redirect_follower'
 require 'hpricot'
+require 'htmlentities'
+
 def HtmlPageTitle(url)
   HtmlPageTitle.new(url)
 rescue SocketError => err
@@ -42,7 +44,7 @@ class HtmlPageTitle
   def title
     return @title if @title
     if title_tag = document.at('head title')
-      @title = title_tag.inner_html.strip.chomp
+      @title = HTMLEntities.new.decode(title_tag.inner_html.strip.chomp)
     end
   end
   
@@ -50,7 +52,7 @@ class HtmlPageTitle
   def heading
     return @heading if @heading
     if heading_tag = document.at('body h1')
-      @heading = heading_tag.inner_html.strip.chomp
+      @heading = HTMLEntities.new.decode(heading_tag.inner_html.strip.chomp)
     end
   end
   

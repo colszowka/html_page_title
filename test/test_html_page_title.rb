@@ -60,4 +60,9 @@ class TestHtmlPageTitle < Test::Unit::TestCase
     instance = HtmlPageTitle('http://gembundler.com/v1.0/index.html')
     assert_equal instance.title, instance.label
   end
+  
+  def test_title_with_entities
+    instance = HtmlPageTitle('http://metautonomo.us/2010/04/15/introducing-metawhere/')
+    assert_equal 'metautonomo.us  » Blog Archive   » Introducing MetaWhere', instance.title
+  end
 end
