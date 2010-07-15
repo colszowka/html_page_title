@@ -25,6 +25,9 @@ that will always return some kind of string
 
 You can also have a look at the unit test to find out about the behaviour!
 
+== TODO:
+* Remove arbitrary html from the h1 content
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
