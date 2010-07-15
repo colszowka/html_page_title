@@ -5,12 +5,14 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "html_page_title"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "'christoph@olszowka.de'"
+    gem.summary = %Q{Retrieve the page title for a given url (including redirects)}
+    gem.description = %Q{Retrieve the page title for a given url using redirect_follower and hpricot ruby gems}
+    gem.email = "'christoph at olszowka.de'"
     gem.homepage = "http://github.com/colszowka/html_page_title"
-    gem.authors = ["'Christoph"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.authors = ["Christoph Olszowka"]
+    gem.add_dependency "redirect_follower", ">= 0.1.1"
+    gem.add_dependency "hpricot", ">= 0.8.2"
+    gem.add_development_dependency "shoulda", ">= 2.11.1"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
