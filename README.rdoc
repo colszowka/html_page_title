@@ -21,7 +21,10 @@ by availability) either the heading, or the title, or the target url after
 redirecting. 
 Note that if the title or the heading can not be found (e.g. a non-HTML
 document), both methods will return nil, so the label method is the only one
-that will always return some kind of string
+that will always return some kind of string.
+
+HTML entities inside the title and heading are being automatically decoded using
+the great htmlentities ruby gem.
 
 == Usage example
 
