@@ -69,7 +69,7 @@ When run, the output will look somewhat like this:
 
   $ ruby example.rb
   @igrigorik avait déjà proposé un serveur WebSocket basé sur EventMachine github: http://bit.ly/crHaJ9  ; le post http://bit.ly/dtD8Km
-  @igrigorik avait déjà proposé un serveur WebSocket basé sur EventMachine github: 'igrigorik's em-websocket at master - GitHub' (http://github.com/igrigorik/em-websocket)  ; le post 'Ruby &amp; WebSockets: TCP for the Browser - igvita.com' (http://www.igvita.com/2009/12/22/ruby-websockets-tcp-for-the-browser/)
+  @igrigorik avait déjà proposé un serveur WebSocket basé sur EventMachine github: 'igrigorik's em-websocket at master - GitHub' (http://github.com/igrigorik/em-websocket)  ; le post 'Ruby & WebSockets: TCP for the Browser - igvita.com' (http://www.igvita.com/2009/12/22/ruby-websockets-tcp-for-the-browser/)
 
   RT @rubyfrance: Rev-WebSocket 0.1.2 est un serveur WebSocket en Ruby basé sur Rev (qui se base sur libevent ie epoll/kqueue) http://bit.ly/9c1yzi
   RT @rubyfrance: Rev-WebSocket 0.1.2 est un serveur WebSocket en Ruby basé sur Rev (qui se base sur libevent ie epoll/kqueue) 'frsyuki's rev-websocket at master - GitHub' (http://github.com/frsyuki/rev-websocket)
