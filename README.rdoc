@@ -3,8 +3,8 @@
   gem install html_page_title
 
 A simple class for finding the title of a given http url by fetching the
-given url, following all eventual redirects and finally parsing it through
-hpricot.
+url, following all eventual redirects (with redirect_follower Rubygem) 
+and finally parsing it through hpricot.
 
 You can either use the shorthand form or initialize the instance properly:
  * HtmlPageTitle('http://github.com')
@@ -15,13 +15,26 @@ The shorthand form will swallow SocketErrors and return nil (i.e. this will
 happen for invalid urls), while the regular instantiation via new will 
 throw that error.
 
-You can either get the title, the heading (which will be the content of the
+After that you can either get the title, the heading (which will be the content of the
 first h1 tag in the body) or the label, which will be (in the following order 
 by availability) either the heading, or the title, or the target url after
 redirecting. 
 Note that if the title or the heading can not be found (e.g. a non-HTML
 document), both methods will return nil, so the label method is the only one
 that will always return some kind of string
+
+== Usage example
+
+  >> require 'html_page_title'
+  >> t=HtmlPageTitle('http://tinyurl.com/2lekkm')
+  >> t.url
+  => "http://github.com"
+  >> t.title
+  => "Secure source code hosting and collaborative development - GitHub"
+  >> t.heading
+  => "Unleash Your Code"
+  >> t.label
+  => "Unleash Your Code"
 
 You can also have a look at the unit test to find out about the behaviour!
 
