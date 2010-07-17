@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{html_page_title}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Christoph Olszowka"]
-  s.date = %q{2010-07-15}
+  s.date = %q{2010-07-17}
   s.description = %q{Retrieve the page title for a given url using redirect_follower and hpricot ruby gems}
   s.email = %q{'christoph at olszowka.de'}
   s.extra_rdoc_files = [
