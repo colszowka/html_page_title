@@ -26,7 +26,7 @@ that will always return some kind of string.
 HTML entities inside the title and heading are being automatically decoded using
 the great htmlentities ruby gem.
 
-== Usage example
+== Basic usage
 
   >> require 'html_page_title'
   >> t=HtmlPageTitle('http://tinyurl.com/2lekkm')
@@ -39,7 +39,44 @@ the great htmlentities ruby gem.
   >> t.label
   => "Unleash Your Code"
 
-You can also have a look at the unit test to find out about the behaviour!
+You can also have a look at the unit test to find out about the behaviour.
+
+== A more complex example
+
+This little (ugly) script will retrieve the page title and destination url for
+tweets pulled in from the search api using the twitter gem and insert the page title
+alongside the url.
+
+  require 'rubygems'
+  require 'twitter'
+  require 'uri'
+  require 'html_page_title'
+
+  s = Twitter::Search.new('github')
+
+  s.each do |tweet|
+    puts tweet['text']
+    urls = URI.extract(tweet["text"]).select {|uri| uri =~ /^http/ }
+    text = tweet["text"]
+    urls.each do |url|
+      hpt = HtmlPageTitle(url)
+      text.gsub!(url, "'#{hpt.title}' (#{hpt.url})")
+    end
+    puts text, ""
+  end
+  
+When run, the output will look somewhat like this:
+
+  $ ruby example.rb
+  @igrigorik avait déjà proposé un serveur WebSocket basé sur EventMachine github: http://bit.ly/crHaJ9  ; le post http://bit.ly/dtD8Km
+  @igrigorik avait déjà proposé un serveur WebSocket basé sur EventMachine github: 'igrigorik's em-websocket at master - GitHub' (http://github.com/igrigorik/em-websocket)  ; le post 'Ruby &amp; WebSockets: TCP for the Browser - igvita.com' (http://www.igvita.com/2009/12/22/ruby-websockets-tcp-for-the-browser/)
+
+  RT @rubyfrance: Rev-WebSocket 0.1.2 est un serveur WebSocket en Ruby basé sur Rev (qui se base sur libevent ie epoll/kqueue) http://bit.ly/9c1yzi
+  RT @rubyfrance: Rev-WebSocket 0.1.2 est un serveur WebSocket en Ruby basé sur Rev (qui se base sur libevent ie epoll/kqueue) 'frsyuki's rev-websocket at master - GitHub' (http://github.com/frsyuki/rev-websocket)
+
+  RT @zevarito: I just released a simple gem for track events with Mixpanel, take a look http://github.com/zevarito/mixpanel #ruby #rack #mixpanel
+  RT @zevarito: I just released a simple gem for track events with Mixpanel, take a look 'zevarito's mixpanel at master - GitHub' (http://github.com/zevarito/mixpanel) #ruby #rack #mixpanel
+  
 
 == TODO:
 * Remove arbitrary html from the h1 content
